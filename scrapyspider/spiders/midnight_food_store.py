@@ -16,7 +16,7 @@ class MFSCommentSpider(Spider):
     cookie = settings['COOKIE']
 
     headers = {
-        'Connection': 'keep - alive',  # 保持链接状态
+        'Connection': 'keep - alive',  
         "User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0"
     }
 
@@ -27,7 +27,8 @@ class MFSCommentSpider(Spider):
     }
 
     def start_requests(self):
-        # 带着cookie向网站服务器发请求，表明我们是一个已登录的用户
+
+        # 带着cookie向网站服务器发请求，表明是一个已登录的用户
         yield Request(self.start_urls[0], callback=self.parse, cookies=self.cookie,
                       headers=self.headers, meta=self.meta)
 

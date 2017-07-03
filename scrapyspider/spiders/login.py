@@ -13,7 +13,10 @@ class LoginSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        return [FormRequest("https://accounts.douban.com/login",headers=self.header,meta={"cookiejar":1},callback=self.parse)]
+        return [FormRequest("https://accounts.douban.com/login",
+        	headers=self.header,meta={"cookiejar":1},
+        	callback=self.parse)
+        ]
 
 
     def parse(self, response):

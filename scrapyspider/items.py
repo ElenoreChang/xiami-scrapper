@@ -8,24 +8,17 @@
 import scrapy
 
 
-class ScrapyspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
-
-
-class MovieCommentItem(scrapy.Item):
-
-	user_name = scrapy.Field()
-
-	user_id = scrapy.Field()
-
-	comment_time = scrapy.Field()
-
-	ranking = scrapy.Field()
-
-	comment = scrapy.Field()
-
-	usefule_num = scrapy.Field()
-
-	
+class AlbumSongItem(scrapy.Item):
+    #album_id = scrapy.Field()
+    album_name = scrapy.Field()
+    #artist_id = scrapy.Field()
+    artists = scrapy.Field()
+    info = scrapy.Field()
+    tags = scrapy.Field()
+    album_publish_date = scrapy.Field()
+    disc_id = scrapy.Field()
+    song_index = scrapy.Field()
+    song_name = scrapy.Field()
+    song_singer = scrapy.Field()
+    song_dur = scrapy.Field()
+    play_cnt = scrapy.Field()

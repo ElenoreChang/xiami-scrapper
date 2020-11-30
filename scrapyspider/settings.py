@@ -19,12 +19,12 @@ NEWSPIDER_MODULE = 'scrapyspider.spiders'
 ROBOTSTXT_OBEY = False  # 不遵守Robot协议
 
 # 使用transCookie.py翻译出的Cookie字典
-COOKIE = {'your_cookie': 'your_cookie'}
+#COOKIE = {'your_cookie': 'your_cookie'}
 
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'midenight_food_store (+http://www.douban.com)'
+USER_AGENT = 'user_fav_page_scrapper (+http://www.xiami.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
@@ -69,9 +69,9 @@ DOWNLOAD_DELAY = 3
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapyspider.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'scrapyspider.pipelines.ScrapyspiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

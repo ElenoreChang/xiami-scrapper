@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy, urllib
-from scrapy.http import Request,FormRequest
-from scrapyspider.items import MovieCommentItem
+from scrapy.http import FormRequest
 
 class LoginSpider(scrapy.Spider):
 

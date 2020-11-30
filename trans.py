@@ -32,4 +32,4 @@ if __name__ == "__main__":
 
     trans = transCookie(cookie)
 
-    print trans.stringToDict()
+    print(trans.stringToDict())

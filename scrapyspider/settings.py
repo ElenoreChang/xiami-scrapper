@@ -57,9 +57,12 @@ DOWNLOAD_DELAY = 3
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'scrapyspider.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   #'scrapyspider.middlewares.MyCustomDownloaderMiddleware': 543,
+   #'scrapy.downloadermiddlewares.RetryMiddleware': True,
+}
+RETRY_ENABLED=True
+RETRY_TIMES=3
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html

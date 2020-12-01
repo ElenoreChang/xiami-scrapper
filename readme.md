@@ -24,10 +24,12 @@ https://www.douban.com/people/binchoutan/status/3194376103/
 
 ## 如何使用
 ### Python 环境安装
-此项目运行于 Python 3.6 环境下，需要先安装对应版本的 Python 环境，可以参考[廖雪峰的教程](https://www.liaoxuefeng.com/wiki/1016959663602400/1016959856222624)
+此项目运行于 Python 3.6 环境下，需要先安装对应版本的 Python 环境，[下载地址](https://www.python.org/ftp/python/3.6.10/Python-3.6.10.tgz)
+环境部署可以参考[廖雪峰的教程](https://www.liaoxuefeng.com/wiki/1016959663602400/1016959856222624)
 
 ### 依赖安装
 安装好 Python 之后，打开命令行，执行 `pip3 install scrapy` 安装爬虫依赖的 `scrapy` 工具包
+如果安装速度很慢或者报错的话，可以执行`pip install --index-url https://pypi.douban.com/simple scipy`命令，将源切换到豆瓣
 
 ### 执行程序
 将本项目下载或 clone 到本地，修改项目代码中的 `run.sh` 脚本，修改 user_id begin_page 和 end_page 的赋值，然后在命令行运行该脚本，如代码保存在了 `~/Desktop/` 下，则在命令行输入 `~/Desktop/xiami-scrapper/run.sh`

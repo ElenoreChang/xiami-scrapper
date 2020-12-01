@@ -151,4 +151,5 @@ crashlytics-build.properties
 fabric.properties
 
 # data
-data*.csv
+data/
+log/

@@ -1,24 +1,41 @@
 虾米个人收藏音乐人专辑爬虫
 ====
-爬取指定虾米用户收藏的音乐人所有专辑歌曲详情，包含字段：
-```python
-import scrapy
-class AlbumSongItem(scrapy.Item):
-    album_name = scrapy.Field() #专辑名称
-    artists = scrapy.Field() #音乐人（列表）
-    info = scrapy.Field() #专辑信息（包含厂牌、语言、类别等）
-    tags = scrapy.Field() #专辑标签（列表）
-    album_publish_date = scrapy.Field() #专辑发行日期
-    disc_id = scrapy.Field() #disc id
-    song_index = scrapy.Field() #歌曲在disc中所在位置
-    song_name = scrapy.Field() #歌曲名称
-    song_singer = scrapy.Field() #歌手（列表）
-    song_dur = scrapy.Field() #歌曲时长
-    play_cnt = scrapy.Field() #播放量
-```
-修改 `./run.sh` 中的 user_id begin_page（开始页） 和 end_page （结束页）后，在终端 ./run.sh 执行，结果将保存于 `data_${begin_page}_${end_page}.csv` 文件中
+## 需求来源
+需求来自豆瓣友邻广播
+https://www.douban.com/people/binchoutan/status/3194376103/
 
-结果示例：
+
+## 功能描述
+爬取指定虾米用户收藏的音乐人所有专辑歌曲详情，包含字段：
+
+| 字段名 | 字段描述 | 字段类型 |
+| --- | --- | --- |
+| album_name | 专辑名称 | 字符串 |
+| artists | 音乐人 | 列表 |
+| info | 专辑信息（包含厂牌、语言、类别等） | json 字符串 |
+| tags | 专辑标签 | 列表 | 
+| album_publish_date | 专辑发行日期  | 字符串 |
+| disc_id | disc id | 字符串 |
+| song_index | 歌曲在 disc 中所在位置 | 整数型 |
+| song_name | 歌曲名称 | 字符串 |
+| song_singer | 歌手 | 列表 |
+| song_dur | 歌曲时长 | 字符串，mm:ss |
+| play_cnt | 播放量 | 整数型 |
+
+## 如何使用
+### Python 环境安装
+此项目运行于 Python 3.6 环境下，需要先安装对应版本的 Python 环境，可以参考[廖雪峰的教程](https://www.liaoxuefeng.com/wiki/1016959663602400/1016959856222624)
+
+### 依赖安装
+安装好 Python 之后，打开命令行，执行 `pip3 install scrapy` 安装爬虫依赖的 `scrapy` 工具包
+
+### 执行程序
+将本项目下载或 clone 到本地，修改项目代码中的 `run.sh` 脚本，修改 user_id begin_page 和 end_page 的赋值，然后在命令行运行该脚本，如代码保存在了 `~/Desktop/` 下，则在命令行输入 `~/Desktop/xiami-scrapper/run.sh`
+脚本将提交三个并行的爬虫进程在后台运行，为了防止 xiami 启动反爬虫机制，设置了 3s 的 DOWNLOAD_DELAY，如果觉得运行比较慢的话也可以自己手动修改 `settings.py` 中 DOWNLOAD_DELAY 的值。
+目前运行并没有发现有很严格的反爬虫机制，所以请求时没有带 cookie 请求。
+
+
+## 结果示例：
 ```
 album_name	album_publish_date	artists	disc_id	info	play_cnt	song_dur	song_index	song_name	song_singer	tags
 Wild Heart	2013-01-02	Current Joys	Disc 1	{'专辑语种': '英语', '厂牌': 'Self-Released', '专辑类别': '录音室专辑'}	864	02:35	1	My Blood	Current Joys	卧室流行
